@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>TRAVEC</title>
+    <link rel="stylesheet" type="text/css" href="src/reset.css" />
+    <link rel="stylesheet" type="text/css" href="STYLE[1].css" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro|Work+Sans" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap"rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+
+<body>
+      <div class="straight-bar">
+      <div class="search-bar">
+        <form class="search-form">
+          <input class="search-input" type="text" id="city" placeholder="Search Place ">
+        </form>
+        <img class="s"src="images/google-maps.png" id="button" >
+        <img src="images/travel.png" id="voiceButton" />
+        <script>
+          // Check if speech recognition is supported by the browser
+          if ('webkitSpeechRecognition' in window) {
+            var recognition = new webkitSpeechRecognition();
+      
+            // Set the language for speech recognition
+            recognition.lang = 'en-US';
+      
+            // When speech recognition starts, update the button text
+            recognition.onstart = function() {
+              document.getElementById('voiceButton').innerHTML = '<img src="path_to_listening_image.jpg" alt="Listening" />';
+            };
+      
+            // When speech recognition ends, restore the button text
+            recognition.onend = function() {
+              document.getElementById('voiceButton').innerHTML = '<img src="path_to_your_image.jpg" alt="Voice Search" />';
+            };
+      
+            // When speech is recognized, populate the search input with the recognized text
+            recognition.onresult = function(event) {
+              var transcript = event.results[0][0].transcript;
+              document.getElementById('city').value = transcript;
+              document.getElementById('searchForm').submit(); // Submit the search form
+            };
+      
+            // Attach click event listener to the voice button
+            document.getElementById('voiceButton').addEventListener('click', function() {
+              recognition.start();
+            });
+          } else {
+            // Speech recognition is not supported
+            console.log('Speech recognition is not supported by your browser.');
+          }
+        </script>
+      </div>
+    </div>
+    <div class="menu">
+      <div class="menu-bar" onclick="toggleMenu()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+      <div class="menu1">
+      <ul class="menu-items" id="menuItems">
+        <li><div id="w1">WEATHER<div></li>
+        <li><div id="p1">POLLUTION</div></li>
+        <li><div id="a1">ATTRACTIONS</div></li>
+      </ul>
+      </div>
+    <main>
+    <div class="rectangle">
+     <a href="https://www.google.com/maps/dir//@15.884657,71.9890323,6z/data=!4m5!4m4!1m1!4e1!1m0!3e0" id="click2"><img id="s"src="images/google-maps.png" ></a>
+    <a href="https://www.google.com/maps/dir//@16.4423204,81.0986491,8.33z/data=!4m2!4m1!3e0!5m1!1e1?entry=ttu" id="click11"><img id="s8"src="images/google-maps.png" ></a>
+   <!-- <a href="https://www.google.com/maps/dir//@13.6475136,79.4443831,9z/data=!4m4!4m3!1m1!4e1!1m0?entry=ttu" id="click12" ><img id="s9"src="images/google-maps.png" ></a>-->
+    </div>
+  </main>
+    </div>
+      <script>
+        var menuOpen = false;
+    
+        function toggleMenu() {
+          var menuItems = document.getElementById('menuItems');
+          if (!menuOpen) {
+            menuItems.style.display = 'block';
+            menuOpen = true;
+          } else {
+            menuItems.style.display = 'none';
+            menuOpen = false;
+          }
+        }
+      </script>
+  <div class="container0">
+    <div class="container">
+        <div id="destination">
+
+        </div>
+        <div class="sectiontitle">
+            <h2>CURRENT WEATHER</h2>
+        </div>
+       <!-- <section id="weather">-->
+
+            <div id="weather1">
+
+            </div>
+
+      <!----  </section>-->
+        <div class="sectiontitle">
+          <h2>5 DAY FORECAST</h2>
+      </div>  
+      <section id="weather">
+        <div class="weather" id="weather2">
+        </div>
+        <div class="weather" id="weather3">
+        </div>
+        <div class="weather" id="weather4">
+        </div>
+
+    </section>
+
+    <section id="weather0">
+
+      <div class="weather" id="weather5">
+      </div>
+      <section id="weatherk">
+      <div class="weather" id="weather6">
+      </div>
+      </section>
+  </section>
+</div>
+<div class="container2">
+  <h1>Weather and Pollution Data</h1>
+  <form onsubmit="event.preventDefault(); handleSubmit();">
+    <label for="cityInput">City:</label>
+    <input type="text" id="cityInput">
+    <button type="submit">Fetch Data</button>
+    <div id="result"></div>
+    </form>
+</div>
+  <div class="container1">
+        <div class="sectiontitle">
+            <h2>TOP ATTRACTIONS</h2>
+        </div>
+        <section id="venues">
+            <div class="venue" id="venue1">
+            </div>
+            <a href="https://www.google.com/maps/dir/12.8205281,80.043913//@15.884657,71.9890323,6z/data=!4m5!4m4!1m1!4e1!1m0!3e0" id="click3"> <img id="s1"src="images/google-maps1.png" ></a>
+            <div class="venue" id="venue2">
+            </div>
+            <a href="https://www.google.com/maps/dir/12.8205281,80.043913//@15.884657,71.9890323,6z/data=!4m5!4m4!1m1!4e1!1m0!3e0" id="click4"> <img id="s1"src="images/google-maps1.png" ></a>
+            <div class="venue" id="venue3">
+              </div>
+              <a href="https://www.google.com/maps/dir/12.8205281,80.043913//@15.884657,71.9890323,6z/data=!4m5!4m4!1m1!4e1!1m0!3e0" id="click5"> <img id="s1"src="images/google-maps1.png" ></a>
+        </section>
+        <section id="venuesk">
+          <div class="venue" id="venue4">
+          </div>
+          <a href="https://www.google.com/maps/dir/12.8205281,80.043913//@15.884657,71.9890323,6z/data=!4m5!4m4!1m1!4e1!1m0!3e0" id="click6"> <img id="s1"src="images/google-maps1.png" ></a>
+          <section id="venues0">
+          <div class="venue" id="venue5">
+            </div>
+            <a href="https://www.google.com/maps/dir/12.8205281,80.043913//@15.884657,71.9890323,6z/data=!4m5!4m4!1m1!4e1!1m0!3e0" id="click7"> <img id="s1"src="images/google-maps1.png" ></a>
+          </section>
+      </section>
+      <section id="venues">
+        <div class="venue" id="venue6">
+
+        </div>
+        <a href="https://www.google.com/maps/dir/12.8205281,80.043913//@15.884657,71.9890323,6z/data=!4m5!4m4!1m1!4e1!1m0!3e0" id="click8"> <img id="s1"src="images/google-maps1.png" ></a>
+        <div class="venue" id="venue7">
+
+        </div>
+        <a href="https://www.google.com/maps/dir/12.8205281,80.043913//@15.884657,71.9890323,6z/data=!4m5!4m4!1m1!4e1!1m0!3e0" id="click9"> <img id="s1"src="images/google-maps1.png" ></a>
+        <div class="venue" id="venue8">
+        </div>
+        <a href="https://www.google.com/maps/dir/12.8205281,80.043913//@15.884657,71.9890323,6z/data=!4m5!4m4!1m1!4e1!1m0!3e0" id="click10"> <img id="s1"src="images/google-maps1.png" ></a>
+    </section>
+    </div>
+        <!-- Footer -->
+        <footer>
+        </footer>
+
+    </div>
+
+    <!-- JS and jQuery source links -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        
+    <script src="src/JS/helper.js"></script>
+    <script src="tt.js"></script>
+    <script src="t1.js"></script>
+</body>
+
+</html>
